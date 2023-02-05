@@ -7,6 +7,9 @@
 // Purpose:
 //-----------------------------------------------------------------------------
 
+static double cyaw, cpitch, croll, ct0, ct1, ct2, ct3, ct4, ct5, cpX, cpY, cpZ;
+static double c2yaw, c2pitch, c2roll, c2t0, c2t1, c2t2, c2t3, c2t4, c2t5, c2pX, c2pY, c2pZ;
+
 class CSampleControllerDriver : public vr::ITrackedDeviceServerDriver
 {
     int32_t ControllerIndex;
