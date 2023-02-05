@@ -47,6 +47,7 @@ void ReceiveThread() {
 		inet_ntop(AF_INET, &client.sin_addr, clientIp, 256);
 
 		printf("Message received from %s: %s", clientIp, buffer);
+		vr::VRDriverLog()->Log(buffer);
 	}
 	
 	closesocket(s);
@@ -63,6 +64,7 @@ EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext *pDriverContext)
 	printf("Initialized WSA");
 	
 	std::thread UDPTask(ReceiveThread);
+	UDPTask.detach();
 
 	VR_INIT_SERVER_DRIVER_CONTEXT(pDriverContext);
 
