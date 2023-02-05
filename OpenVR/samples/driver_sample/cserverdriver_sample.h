@@ -2,7 +2,7 @@
 #define CSERVERDRIVER_SAMPLE_H
 
 #include <openvr_driver.h>
-#include "csampledevicedriver.h"
+//#include "csampledevicedriver.h"
 #include "csamplecontrollerdriver.h"
 
 //-----------------------------------------------------------------------------
@@ -20,7 +20,7 @@ public:
     virtual void LeaveStandby()  {}
 
 private:
-    CSampleDeviceDriver *m_pNullHmdLatest = nullptr;
+    //CSampleDeviceDriver *m_pNullHmdLatest = nullptr;
     CSampleControllerDriver *m_pController = nullptr;
     CSampleControllerDriver *m_pController2 = nullptr;
 };

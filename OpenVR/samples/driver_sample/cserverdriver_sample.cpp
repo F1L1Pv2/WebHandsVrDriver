@@ -7,8 +7,8 @@ EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext *pDriverContext)
     VR_INIT_SERVER_DRIVER_CONTEXT(pDriverContext);
     //InitDriverLog( vr::VRDriverLog() );
 
-    m_pNullHmdLatest = new CSampleDeviceDriver();
-    vr::VRServerDriverHost()->TrackedDeviceAdded(m_pNullHmdLatest->GetSerialNumber().c_str(), vr::TrackedDeviceClass_HMD, m_pNullHmdLatest);
+    // m_pNullHmdLatest = new CSampleDeviceDriver();
+    // vr::VRServerDriverHost()->TrackedDeviceAdded(m_pNullHmdLatest->GetSerialNumber().c_str(), vr::TrackedDeviceClass_HMD, m_pNullHmdLatest);
 
     m_pController = new CSampleControllerDriver();
     m_pController->SetControllerIndex(1);
@@ -24,8 +24,8 @@ EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext *pDriverContext)
 void CServerDriver_Sample::Cleanup()
 {
     //CleanupDriverLog();
-    delete m_pNullHmdLatest;
-    m_pNullHmdLatest = NULL;
+    // delete m_pNullHmdLatest;
+    // m_pNullHmdLatest = NULL;
     delete m_pController;
     m_pController = NULL;
     delete m_pController2;
@@ -34,9 +34,9 @@ void CServerDriver_Sample::Cleanup()
 
 void CServerDriver_Sample::RunFrame()
 {
-    if (m_pNullHmdLatest) {
-        m_pNullHmdLatest->RunFrame();
-    }
+    // if (m_pNullHmdLatest) {
+    //     m_pNullHmdLatest->RunFrame();
+    // }
     if (m_pController) {
         m_pController->RunFrame();
     }

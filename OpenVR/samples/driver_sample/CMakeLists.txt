@@ -8,8 +8,6 @@ add_library(${TARGET_NAME} MODULE
   driverlog.cpp
   driverlog.h
   driver_sample.cpp
-  csampledevicedriver.cpp
-  csampledevicedriver.h
   cserverdriver_sample.cpp
   cserverdriver_sample.h
   csamplecontrollerdriver.cpp
