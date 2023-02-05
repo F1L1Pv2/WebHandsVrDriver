@@ -14,7 +14,7 @@
 bool isListening = true;
 
 using namespace vr;
-void ReceiveThread() {
+void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriver* m_pController2) {
 	SOCKET s = socket(AF_INET, SOCK_DGRAM, 0);
 	sockaddr_in serverHint;
 	serverHint.sin_addr.S_un.S_addr = ADDR_ANY;
@@ -48,6 +48,9 @@ void ReceiveThread() {
 
 		printf("Message received from %s: %s", clientIp, buffer);
 		vr::VRDriverLog()->Log(buffer);
+
+		// message format: "controllerIndex|PosX|PosY|PosZ|RotX|RotY|RotZ"
+		//without strtok
 	}
 	
 	closesocket(s);
@@ -63,8 +66,6 @@ EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext *pDriverContext)
 	}
 	printf("Initialized WSA");
 	
-	std::thread UDPTask(ReceiveThread);
-	UDPTask.detach();
 
 	VR_INIT_SERVER_DRIVER_CONTEXT(pDriverContext);
 
@@ -75,6 +76,9 @@ EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext *pDriverContext)
 	m_pController2 = new CSampleControllerDriver();
 	m_pController2->SetControllerIndex(2);
 	vr::VRServerDriverHost()->TrackedDeviceAdded(m_pController2->GetSerialNumber().c_str(), vr::TrackedDeviceClass_Controller, m_pController2);
+
+	std::thread UDPTask(ReceiveThread, m_pController, m_pController2);
+	UDPTask.detach();
 
 	return VRInitError_None;
 }

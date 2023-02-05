@@ -1,9 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 project(openvr-driver-for-diy VERSION 1.0.0)
-set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
-set(THREADS_PREFER_PTHREAD_FLAG TRUE)
-find_package(Threads REQUIRED)
-target_link_libraries(test Threads::Threads)
 
 if(LINUX)
     set(CMAKE_INSTALL_PREFIX $ENV{HOME}/.local/share/Steam/steamapps/common/SteamVR CACHE FORCE)

@@ -17,6 +17,35 @@ static double c2pX = 0, c2pY = 1, c2pZ = -1;
 static double c2yaw = 0, c2pitch = 0, c2roll = 0;
 static double c2t0, c2t1, c2t2, c2t3, c2t4, c2t5;
 
+
+// void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z)
+// {
+//     if (ControllerIndex == 1) {
+//         cpX = X;
+//         cpY = Y;
+//         cpZ = Z;
+//     }
+//     else if (ControllerIndex == 2) {
+//         c2pX = X;
+//         c2pY = Y;
+//         c2pZ = Z;
+//     }
+// }
+
+// void CSampleControllerDriver::UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z)
+// {
+//     if (ControllerIndex == 1) {
+//         cyaw = X;
+//         cpitch = Y;
+//         croll = Z;
+//     }
+//     else if (ControllerIndex == 2) {
+//         c2yaw = X;
+//         c2pitch = Y;
+//         c2roll = Z;
+//     }
+// }
+
 CSampleControllerDriver::CSampleControllerDriver()
 {
     m_unObjectId = vr::k_unTrackedDeviceIndexInvalid;
@@ -320,6 +349,8 @@ void CSampleControllerDriver::ProcessEvent(const vr::VREvent_t &vrEvent)
         break;
     }
 }
+
+
 
 std::string CSampleControllerDriver::GetSerialNumber() const
 {

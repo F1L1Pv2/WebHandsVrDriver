@@ -16,6 +16,11 @@ add_library(${TARGET_NAME} MODULE
 
 SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES PREFIX "")
 
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+find_package(Threads REQUIRED)
+target_link_libraries(${TARGET_NAME} Threads::Threads)
+
 target_link_libraries(${TARGET_NAME}
   ${OPENVR_LIBRARIES}
   ${CMAKE_DL_LIBS}
