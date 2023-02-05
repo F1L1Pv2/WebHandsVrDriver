@@ -5,8 +5,6 @@ set(TARGET_NAME driver_webhandsvr)
 add_library(${TARGET_NAME} MODULE
   basics.cpp
   basics.h
-  driverlog.cpp
-  driverlog.h
   driver_sample.cpp
   cserverdriver_sample.cpp
   cserverdriver_sample.h
