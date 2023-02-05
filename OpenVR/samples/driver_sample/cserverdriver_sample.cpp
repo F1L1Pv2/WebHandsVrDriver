@@ -1,4 +1,5 @@
 #include "cserverdriver_sample.h"
+#include <windows.h>
 
 using namespace vr;
 
@@ -23,6 +24,7 @@ void CServerDriver_Sample::Cleanup()
     m_pController = NULL;
     delete m_pController2;
     m_pController2 = NULL;
+
 }
 
 void CServerDriver_Sample::RunFrame()
