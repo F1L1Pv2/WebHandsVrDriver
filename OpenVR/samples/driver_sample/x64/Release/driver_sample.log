@@ -1,0 +1,11 @@
+﻿  cserverdriver_sample.cpp
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(30,17): warning C4244: '=': conversion from 'SOCKET' to 'int', possible loss of data
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(20,7): warning C4101: 'buffer': unreferenced local variable
+  driver_sample.cpp
+     Creating library C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\\bin\drivers\sample\bin\win64\driver_sample.lib and object C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\\bin\drivers\sample\bin\win64\driver_sample.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\csamplecontrollerdriver.cpp(334): warning C4715: 'CSampleControllerDriver::GetSerialNumber': not all control paths return a value
+  All 161 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  driver_sample.vcxproj -> C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\bin\drivers\sample\bin\win64\driver_sample.dll

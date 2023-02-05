@@ -11,6 +11,7 @@
 class CServerDriver_Sample : public vr::IServerTrackedDeviceProvider
 {
 public:
+	void ReceiveUDPThread();
     virtual vr::EVRInitError Init(vr::IVRDriverContext *pDriverContext);
     virtual void Cleanup();
     virtual const char *const *GetInterfaceVersions() { return vr::k_InterfaceVersions; }

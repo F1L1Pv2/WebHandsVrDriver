@@ -175,7 +175,9 @@ DriverPose_t CSampleControllerDriver::GetPose()
             cpZ = 0;
         }                                                                        //R
 
+        croll += 0.01;
         cyaw += 0.01;
+        cpitch += 0.01;
         
         pose.vecPosition[0] = cpX;
         pose.vecPosition[1] = cpY;
@@ -225,6 +227,8 @@ DriverPose_t CSampleControllerDriver::GetPose()
         }                                                                           //P
 
         c2roll += 0.01;
+        c2yaw += 0.01;
+        c2pitch += 0.01;
 
         pose.vecPosition[0] = c2pX;
         pose.vecPosition[1] = c2pY;
