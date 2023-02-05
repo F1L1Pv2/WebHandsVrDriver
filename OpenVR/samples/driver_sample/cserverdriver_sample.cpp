@@ -51,6 +51,24 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 
 		// message format: "controllerIndex|PosX|PosY|PosZ|RotX|RotY|RotZ"
 		//without strtok
+		
+		char controllerIndex[1024];
+		double posX, posY, posZ;
+		double rotX, rotY, rotZ;
+
+		#pragma warning(disable : 4996)
+		sscanf(buffer, "%s|%lf|%lf|%lf|%lf|%lf|%lf", controllerIndex, &posX, &posY, &posZ, &rotX, &rotY, &rotZ);
+
+		if (strcmp(controllerIndex, "1") == 0) {
+			m_pController->UpdatePosition(1,posX, posY, posZ);
+			m_pController->UpdateRotation(1,rotX, rotY, rotZ);
+		}
+		else if (strcmp(controllerIndex, "2") == 0) {
+			m_pController2->UpdatePosition(2,posX, posY, posZ);
+			m_pController2->UpdateRotation(2,rotX, rotY, rotZ);
+		}
+
+
 	}
 	
 	closesocket(s);
