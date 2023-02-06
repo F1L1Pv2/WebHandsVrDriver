@@ -49,24 +49,45 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		printf("Message received from %s: %s", clientIp, buffer);
 		vr::VRDriverLog()->Log(buffer);
 
-		// message format: "controllerIndex|PosX|PosY|PosZ|RotX|RotY|RotZ"
+		// message format: "PosX1|PosY1|PosZ1|RotX1|RotY1|RotZ1|PosX2|PosY2|PosZ2|RotX2|RotY2|RotZ2"
 		//without strtok
 		
-		char controllerIndex[1024];
-		double posX, posY, posZ;
-		double rotX, rotY, rotZ;
+		double posX1, posY1, posZ1;
+		double rotX1, rotY1, rotZ1;
+		double posX2, posY2, posZ2;
+		double rotX2, rotY2, rotZ2;
 
-		#pragma warning(disable : 4996)
-		sscanf(buffer, "%s|%lf|%lf|%lf|%lf|%lf|%lf", controllerIndex, &posX, &posY, &posZ, &rotX, &rotY, &rotZ);
+		//split string by "|"
 
-		if (strcmp(controllerIndex, "1") == 0) {
-			m_pController->UpdatePosition(1,posX, posY, posZ);
-			m_pController->UpdateRotation(1,rotX, rotY, rotZ);
-		}
-		else if (strcmp(controllerIndex, "2") == 0) {
-			m_pController2->UpdatePosition(2,posX, posY, posZ);
-			m_pController2->UpdateRotation(2,rotX, rotY, rotZ);
-		}
+		char* pch = strtok(buffer, "|");
+		posX1 = atof(pch);
+		pch = strtok(NULL, "|");
+		posY1 = atof(pch);
+		pch = strtok(NULL, "|");
+		posZ1 = atof(pch);
+		pch = strtok(NULL, "|");
+		rotX1 = atof(pch);
+		pch = strtok(NULL, "|");
+		rotY1 = atof(pch);
+		pch = strtok(NULL, "|");
+		rotZ1 = atof(pch);
+		pch = strtok(NULL, "|");
+		posX2 = atof(pch);
+		pch = strtok(NULL, "|");
+		posY2 = atof(pch);
+		pch = strtok(NULL, "|");
+		posZ2 = atof(pch);
+		pch = strtok(NULL, "|");
+		rotX2 = atof(pch);
+		pch = strtok(NULL, "|");
+		rotY2 = atof(pch);
+		pch = strtok(NULL, "|");
+		rotZ2 = atof(pch);
+
+		m_pController->UpdatePosition(1,posX1, posY1, posZ1);
+		m_pController->UpdateRotation(1,rotX1, rotY1, rotZ1);
+		m_pController2->UpdatePosition(2,posX2, posY2, posZ2);
+		m_pController2->UpdateRotation(2,rotX2, rotY2, rotZ2);
 
 
 	}

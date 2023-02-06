@@ -36,8 +36,8 @@ public:
 
     void ProcessEvent(const vr::VREvent_t &vrEvent);
     
-    virtual void UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z);
-    virtual void UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z);
+    void UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z);
+    void UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z);
 
     std::string GetSerialNumber() const;
 

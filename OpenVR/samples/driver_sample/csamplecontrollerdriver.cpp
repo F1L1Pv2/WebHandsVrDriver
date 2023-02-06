@@ -1,5 +1,6 @@
 #include "csamplecontrollerdriver.h"
 #include "basics.h"
+#include <string.h>
 
 
 //sockets
@@ -20,6 +21,7 @@ static double c2t0, c2t1, c2t2, c2t3, c2t4, c2t5;
 
 void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z)
 {
+    vr::VRDriverLog()->Log("UpdatePosition");
     if (ControllerIndex == 1) {
         cpX = X;
         cpY = Y;
@@ -34,6 +36,7 @@ void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, 
 
 void CSampleControllerDriver::UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z)
 {
+    vr::VRDriverLog()->Log("UpdateRotation");
     if (ControllerIndex == 1) {
         cyaw = X;
         cpitch = Y;
@@ -204,9 +207,9 @@ DriverPose_t CSampleControllerDriver::GetPose()
         //     cpZ = 0;
         // }                                                                        //R
 
-        croll += 0.01;
-        cyaw += 0.01;
-        cpitch += 0.01;
+        // croll += 0.01;
+        // cyaw += 0.01;
+        // cpitch += 0.01;
         
         pose.vecPosition[0] = cpX;
         pose.vecPosition[1] = cpY;
@@ -255,9 +258,9 @@ DriverPose_t CSampleControllerDriver::GetPose()
         //     c2pZ = 0;
         // }                                                                           //P
 
-        c2roll += 0.01;
-        c2yaw += 0.01;
-        c2pitch += 0.01;
+        // c2roll += 0.01;
+        // c2yaw += 0.01;
+        // c2pitch += 0.01;
 
         pose.vecPosition[0] = c2pX;
         pose.vecPosition[1] = c2pY;
