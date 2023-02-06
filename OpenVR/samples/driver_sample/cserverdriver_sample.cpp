@@ -57,8 +57,8 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		double posX2, posY2, posZ2;
 		double rotX2, rotY2, rotZ2;
 
-		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click, btnSystem1, btnSystem2;
-		double trig1, trig2, grip1, grip2, joy1X, joy1Y, joy2X, joy2Y;
+		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click, btnSystem1, btnSystem2, grip1, grip2;
+		double trig1, trig2, joy1X, joy1Y, joy2X, joy2Y;
 
 		//split string by "|"
 		#pragma warning disable C4996
@@ -108,9 +108,9 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		pch = strtok(NULL, "|");
 		trig2 = atof(pch);
 		pch = strtok(NULL, "|");
-		grip1 = atof(pch);
+		grip1 = atoi(pch);
 		pch = strtok(NULL, "|");
-		grip2 = atof(pch);
+		grip2 = atoi(pch);
 		pch = strtok(NULL, "|");
 		btnAppMenu1 = atoi(pch);
 		pch = strtok(NULL, "|");
@@ -137,6 +137,8 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[0], btnAppMenu2, 0);
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController->HButtons[2], btnSystem1, 0);
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[2], btnSystem2, 0);
+		vr::VRDriverInput()->UpdateBooleanComponent(m_pController->HButtons[1], grip1, 0);
+		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[1], grip2, 0);
 
 		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], joy1X, 0);
 		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], joy1Y, 0);
