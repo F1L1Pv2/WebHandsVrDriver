@@ -10,6 +10,7 @@
 class CSampleControllerDriver : public vr::ITrackedDeviceServerDriver
 {
     int32_t ControllerIndex;
+
 public:
     CSampleControllerDriver();
 
@@ -35,25 +36,25 @@ public:
     void RunFrame();
 
     void ProcessEvent(const vr::VREvent_t &vrEvent);
-    
+
     void UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z);
     void UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z);
 
     std::string GetSerialNumber() const;
-	
-	vr::VRInputComponentHandle_t HButtons[4], HAnalog[3];
+
+    vr::VRInputComponentHandle_t HButtons[4], HAnalog[3];
 
 private:
     vr::TrackedDeviceIndex_t m_unObjectId;
     vr::PropertyContainerHandle_t m_ulPropertyContainer;
 
-    //vr::VRInputComponentHandle_t m_compA;
-    //vr::VRInputComponentHandle_t m_compB;
-    //vr::VRInputComponentHandle_t m_compC;
+    // vr::VRInputComponentHandle_t m_compA;
+    // vr::VRInputComponentHandle_t m_compB;
+    // vr::VRInputComponentHandle_t m_compC;
     vr::VRInputComponentHandle_t m_compHaptic;
-    
-    //std::string m_sSerialNumber;
-    //std::string m_sModelNumber;
+
+    // std::string m_sSerialNumber;
+    // std::string m_sModelNumber;
 };
 
 #endif // CSAMPLECONTROLLERDRIVER_H
