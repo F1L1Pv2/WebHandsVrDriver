@@ -21,7 +21,7 @@ static double c2t0, c2t1, c2t2, c2t3, c2t4, c2t5;
 
 void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z)
 {
-    vr::VRDriverLog()->Log("UpdatePosition");
+    //vr::VRDriverLog()->Log("UpdatePosition");
     if (ControllerIndex == 1) {
         cpX = X;
         cpY = Y;
@@ -36,7 +36,7 @@ void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, 
 
 void CSampleControllerDriver::UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z)
 {
-    vr::VRDriverLog()->Log("UpdateRotation");
+    //vr::VRDriverLog()->Log("UpdateRotation");
     if (ControllerIndex == 1) {
         cyaw = X;
         cpitch = Y;

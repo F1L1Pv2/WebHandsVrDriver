@@ -47,7 +47,7 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		inet_ntop(AF_INET, &client.sin_addr, clientIp, 256);
 
 		printf("Message received from %s: %s", clientIp, buffer);
-		vr::VRDriverLog()->Log(buffer);
+		//vr::VRDriverLog()->Log(buffer);
 
 		// message format: "PosX1|PosY1|PosZ1|RotX1|RotY1|RotZ1|PosX2|PosY2|PosZ2|RotX2|RotY2|RotZ2|A|B|X|Y|Joy1X|Joy1Y|Joy2X|Joy2Y|Trig1|Trig2|Grip1|Grip2|AppMenu1|AppMenu2|Joy1Click|Joy2Click|System1|System2"
 		//without strtok
