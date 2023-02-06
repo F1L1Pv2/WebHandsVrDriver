@@ -1,4 +1,12 @@
 ﻿  csamplecontrollerdriver.cpp
+  cserverdriver_sample.cpp
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(64,19): warning C4083: expected '('; found identifier 'disable'
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(141,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(142,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(143,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(144,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(145,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(146,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
      Creating library C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\\bin\drivers\sample\bin\win64\driver_sample.lib and object C:\Users\Kuba\Downloads\WebHandVrDriver-main\OpenVR\samples\driver_sample\\bin\drivers\sample\bin\win64\driver_sample.exp
   Generating code
   Previous IPDB and IOBJ mismatch, fall back to full compilation.

@@ -49,7 +49,7 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		printf("Message received from %s: %s", clientIp, buffer);
 		vr::VRDriverLog()->Log(buffer);
 
-		// message format: "PosX1|PosY1|PosZ1|RotX1|RotY1|RotZ1|PosX2|PosY2|PosZ2|RotX2|RotY2|RotZ2|A|B|X|Y|Joy1X|Joy1Y|Joy2X|Joy2Y|Trig1|Trig2|Grip1|Grip2|AppMenu1|AppMenu2|Joy1Click|Joy2Click"
+		// message format: "PosX1|PosY1|PosZ1|RotX1|RotY1|RotZ1|PosX2|PosY2|PosZ2|RotX2|RotY2|RotZ2|A|B|X|Y|Joy1X|Joy1Y|Joy2X|Joy2Y|Trig1|Trig2|Grip1|Grip2|AppMenu1|AppMenu2|Joy1Click|Joy2Click|System1|System2"
 		//without strtok
 
 		double posX1, posY1, posZ1;
@@ -57,7 +57,7 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		double posX2, posY2, posZ2;
 		double rotX2, rotY2, rotZ2;
 
-		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click;
+		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click, btnSystem1, btnSystem2;
 		double trig1, trig2, grip1, grip2, joy1X, joy1Y, joy2X, joy2Y;
 
 		//split string by "|"
@@ -119,6 +119,10 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		joy1Click = atoi(pch);
 		pch = strtok(NULL, "|");
 		joy2Click = atoi(pch);
+		pch = strtok(NULL, "|");
+		btnSystem1 = atoi(pch);
+		pch = strtok(NULL, "|");
+		btnSystem2 = atoi(pch);
 
 		m_pController->UpdatePosition(1, posX1, posY1, posZ1);
 		m_pController->UpdateRotation(1, rotX1, rotY1, rotZ1);
@@ -129,6 +133,10 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[3], joy2Click, 0);
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController->HButtons[0], btnAppMenu1, 0);
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[0], btnAppMenu2, 0);
+		vr::VRDriverInput()->UpdateBooleanComponent(m_pController->HButtons[0], btnAppMenu1, 0);
+		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[0], btnAppMenu2, 0);
+		vr::VRDriverInput()->UpdateBooleanComponent(m_pController->HButtons[2], btnSystem1, 0);
+		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[2], btnSystem2, 0);
 
 		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], joy1X, 0);
 		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], joy1Y, 0);
