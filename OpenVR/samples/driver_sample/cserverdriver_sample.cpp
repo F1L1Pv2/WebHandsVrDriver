@@ -14,7 +14,8 @@
 bool isListening = true;
 
 using namespace vr;
-void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriver* m_pController2) {
+void ReceiveThread(CSampleControllerDriver *m_pController, CSampleControllerDriver *m_pController2)
+{
 	SOCKET s = socket(AF_INET, SOCK_DGRAM, 0);
 	sockaddr_in serverHint;
 	serverHint.sin_addr.S_un.S_addr = ADDR_ANY;
@@ -22,7 +23,8 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 	serverHint.sin_port = htons(UDP_RECV_PORT);
 	char buffer[UDP_RECV_BYTES];
 
-	if (bind(s, (sockaddr*)&serverHint, sizeof(serverHint)) == SOCKET_ERROR) {
+	if (bind(s, (sockaddr *)&serverHint, sizeof(serverHint)) == SOCKET_ERROR)
+	{
 		printf("Could not bind socket, error %d", WSAGetLastError());
 		return;
 	}
@@ -32,11 +34,13 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 	ZeroMemory(&client, clientLength);
 
 	// Main loop of socket
-	while (isListening) {
+	while (isListening)
+	{
 		ZeroMemory(buffer, UDP_RECV_BYTES);
 
-		int bytesIn = recvfrom(s, buffer, UDP_RECV_BYTES, 0, (sockaddr*)&client, &clientLength);
-		if (bytesIn == SOCKET_ERROR) {
+		int bytesIn = recvfrom(s, buffer, UDP_RECV_BYTES, 0, (sockaddr *)&client, &clientLength);
+		if (bytesIn == SOCKET_ERROR)
+		{
 			printf("Error in recvfrom, error %d", WSAGetLastError());
 			continue;
 		}
@@ -47,10 +51,10 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		inet_ntop(AF_INET, &client.sin_addr, clientIp, 256);
 
 		printf("Message received from %s: %s", clientIp, buffer);
-		//vr::VRDriverLog()->Log(buffer);
+		// vr::VRDriverLog()->Log(buffer);
 
 		// message format: "PosX1|PosY1|PosZ1|RotX1|RotY1|RotZ1|PosX2|PosY2|PosZ2|RotX2|RotY2|RotZ2|A|B|X|Y|Joy1X|Joy1Y|Joy2X|Joy2Y|Trig1|Trig2|Grip1|Grip2|AppMenu1|AppMenu2|Joy1Click|Joy2Click|System1|System2"
-		//without strtok
+		// without strtok
 
 		double posX1, posY1, posZ1;
 		double rotX1, rotY1, rotZ1;
@@ -60,9 +64,9 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click, btnSystem1, btnSystem2, grip1, grip2;
 		double trig1, trig2, joy1X, joy1Y, joy2X, joy2Y;
 
-		//split string by "|"
-		#pragma warning disable C4996
-		char* pch = strtok(buffer, "|");
+// split string by "|"
+#pragma warning disable C4996
+		char *pch = strtok(buffer, "|");
 		posX1 = atof(pch);
 		pch = strtok(NULL, "|");
 		posY1 = atof(pch);
@@ -151,16 +155,16 @@ void ReceiveThread(CSampleControllerDriver* m_pController, CSampleControllerDriv
 	closesocket(s);
 }
 
-EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext* pDriverContext)
+EVRInitError CServerDriver_Sample::Init(vr::IVRDriverContext *pDriverContext)
 {
 	WSADATA wsaData;
 	int err = WSAStartup(MAKEWORD(2, 2), &wsaData);
-	if (err != 0) {
+	if (err != 0)
+	{
 		printf("Could not intialize WSA, error %d", err);
 		return VRInitError_Driver_Failed;
 	}
 	printf("Initialized WSA");
-
 
 	VR_INIT_SERVER_DRIVER_CONTEXT(pDriverContext);
 
@@ -192,10 +196,12 @@ void CServerDriver_Sample::Cleanup()
 
 void CServerDriver_Sample::RunFrame()
 {
-	if (m_pController) {
+	if (m_pController)
+	{
 		m_pController->RunFrame();
 	}
-	if (m_pController2) {
+	if (m_pController2)
+	{
 		m_pController2->RunFrame();
 	}
 

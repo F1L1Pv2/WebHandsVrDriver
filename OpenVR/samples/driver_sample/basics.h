@@ -17,13 +17,13 @@ int GetAsyncKeyState(int key);
 #define VK_NUMPAD8 0x8005
 #define VK_NUMPAD2 0x8006
 #define VK_NUMPAD9 0x8007
-#define VK_UP      0x8008
-#define VK_DOWN    0x8009
-#define VK_LEFT    0x80010
-#define VK_RIGHT   0x80011
-#define VK_PRIOR   0x80012
-#define VK_NEXT    0x80013
-#define VK_END     0x80014
+#define VK_UP 0x8008
+#define VK_DOWN 0x8009
+#define VK_LEFT 0x80010
+#define VK_RIGHT 0x80011
+#define VK_PRIOR 0x80012
+#define VK_NEXT 0x80013
+#define VK_END 0x80014
 #endif
 
 // keys for use with the settings API
@@ -41,7 +41,7 @@ extern const char *const k_pch_Sample_DisplayFrequency_Float;
 
 extern bool g_bExiting;
 
-inline vr::HmdQuaternion_t HmdQuaternion_Init( double w, double x, double y, double z )
+inline vr::HmdQuaternion_t HmdQuaternion_Init(double w, double x, double y, double z)
 {
     vr::HmdQuaternion_t quat;
     quat.w = w;

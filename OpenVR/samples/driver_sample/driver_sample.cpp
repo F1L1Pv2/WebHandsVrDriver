@@ -1,7 +1,7 @@
 //============ Copyright (c) Valve Corporation, All rights reserved. ============
 //=============== Changed by r57zone (https://github.com/r57zone) ===============
 
-//#include "driverlog.h"
+// #include "driverlog.h"
 
 #include "cserverdriver_sample.h"
 #include "cwatchdogdriver_sample.h"
@@ -29,17 +29,19 @@ static CServerDriver_Sample g_serverDriverNull;
 //-----------------------------------------------------------------------------
 HMD_DLL_EXPORT void *HmdDriverFactory(const char *pInterfaceName, int *pReturnCode)
 {
-    if (0 == strcmp(IServerTrackedDeviceProvider_Version, pInterfaceName)) {
+    if (0 == strcmp(IServerTrackedDeviceProvider_Version, pInterfaceName))
+    {
         return &g_serverDriverNull;
     }
-    if (0 == strcmp(IVRWatchdogProvider_Version, pInterfaceName)) {
+    if (0 == strcmp(IVRWatchdogProvider_Version, pInterfaceName))
+    {
         return &g_watchdogDriverNull;
     }
 
-    if (pReturnCode) {
+    if (pReturnCode)
+    {
         *pReturnCode = VRInitError_Init_InterfaceNotFound;
     }
 
     return NULL;
 }
-
