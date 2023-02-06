@@ -1,6 +1,6 @@
-# WebHandVrDriver
+# WebHandsVrDriver
 
-WebHandVrDriver - a SteamVR driver that can communicate to custom hardware over the UDP protocol. It uses the Vive Wand bindings, so it has everything You need.
+WebHandsVrDriver - a SteamVR driver that can communicate to custom hardware over the UDP protocol. It uses the Vive Wand bindings, so it has everything You need.
 
 ## For devs:
 **How do I use this driver for my custom controller?**
