@@ -10,11 +10,11 @@
 
 using namespace vr;
 
-static double cyaw = 0, cpitch = 1, croll = 0;
+static double cyaw = 0, cpitch = 0, croll = 0;
 static double ct0, ct1, ct2, ct3, ct4, ct5;
-static double cpX = 0, cpY = 0, cpZ = -1;
+static double cpX = 0, cpY = 0, cpZ = -0;
 
-static double c2pX = 0, c2pY = 1, c2pZ = -1;
+static double c2pX = 0, c2pY = 0, c2pZ = 0;
 static double c2yaw = 0, c2pitch = 0, c2roll = 0;
 static double c2t0, c2t1, c2t2, c2t3, c2t4, c2t5;
 
