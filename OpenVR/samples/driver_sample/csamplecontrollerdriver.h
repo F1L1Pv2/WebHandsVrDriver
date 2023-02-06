@@ -7,9 +7,6 @@
 // Purpose:
 //-----------------------------------------------------------------------------
 
-static double cyaw, cpitch, croll, ct0, ct1, ct2, ct3, ct4, ct5, cpX, cpY, cpZ;
-static double c2yaw, c2pitch, c2roll, c2t0, c2t1, c2t2, c2t3, c2t4, c2t5, c2pX, c2pY, c2pZ;
-
 class CSampleControllerDriver : public vr::ITrackedDeviceServerDriver
 {
     int32_t ControllerIndex;
@@ -38,8 +35,13 @@ public:
     void RunFrame();
 
     void ProcessEvent(const vr::VREvent_t &vrEvent);
+    
+    void UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z);
+    void UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z);
 
     std::string GetSerialNumber() const;
+	
+	vr::VRInputComponentHandle_t HButtons[4], HAnalog[3];
 
 private:
     vr::TrackedDeviceIndex_t m_unObjectId;
@@ -49,8 +51,7 @@ private:
     //vr::VRInputComponentHandle_t m_compB;
     //vr::VRInputComponentHandle_t m_compC;
     vr::VRInputComponentHandle_t m_compHaptic;
-
-    vr::VRInputComponentHandle_t HButtons[4], HAnalog[3];
+    
     //std::string m_sSerialNumber;
     //std::string m_sModelNumber;
 };
