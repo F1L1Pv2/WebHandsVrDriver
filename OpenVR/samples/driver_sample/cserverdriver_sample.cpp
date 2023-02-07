@@ -62,7 +62,7 @@ void ReceiveThread(CSampleControllerDriver *m_pController, CSampleControllerDriv
 		double rotX2, rotY2, rotZ2;
 
 		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click, btnSystem1, btnSystem2, grip1, grip2;
-		double trig1, trig2, joy1X, joy1Y, joy2X, joy2Y;
+		float trig1, trig2, joy1X, joy1Y, joy2X, joy2Y;
 
 // split string by "|"
 #pragma warning disable C4996
