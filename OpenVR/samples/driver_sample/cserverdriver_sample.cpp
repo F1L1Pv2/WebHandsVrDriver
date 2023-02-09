@@ -145,11 +145,11 @@ void ReceiveThread(CSampleControllerDriver *m_pController, CSampleControllerDriv
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[1], grip2, 0);
 
 		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], joy1X, 0);
-		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], joy1Y, 0);
+		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[1], joy1Y, 0);
 		vr::VRDriverInput()->UpdateScalarComponent(m_pController2->HAnalog[0], joy2X, 0);
-		vr::VRDriverInput()->UpdateScalarComponent(m_pController2->HAnalog[0], joy2Y, 0);
-		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[0], trig1, 0);
-		vr::VRDriverInput()->UpdateScalarComponent(m_pController2->HAnalog[0], trig2, 0);
+		vr::VRDriverInput()->UpdateScalarComponent(m_pController2->HAnalog[1], joy2Y, 0);
+		vr::VRDriverInput()->UpdateScalarComponent(m_pController->HAnalog[2], trig1, 0);
+		vr::VRDriverInput()->UpdateScalarComponent(m_pController2->HAnalog[2], trig2, 0);
 	}
 
 	closesocket(s);
