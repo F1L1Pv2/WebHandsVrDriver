@@ -57,9 +57,9 @@ void ReceiveThread(CSampleControllerDriver *m_pController, CSampleControllerDriv
 		// without strtok
 
 		double posX1, posY1, posZ1;
-		double rotX1, rotY1, rotZ1;
+		double rotW1, rotX1, rotY1, rotZ1;
 		double posX2, posY2, posZ2;
-		double rotX2, rotY2, rotZ2;
+		double rotW2, rotX2, rotY2, rotZ2;
 
 		bool btnA, btnB, btnX, btnY, btnAppMenu1, btnAppMenu2, joy1Click, joy2Click, btnSystem1, btnSystem2, grip1, grip2;
 		float trig1, trig2, joy1X, joy1Y, joy2X, joy2Y;
@@ -73,17 +73,24 @@ void ReceiveThread(CSampleControllerDriver *m_pController, CSampleControllerDriv
 		pch = strtok(NULL, "|");
 		posZ1 = atof(pch);
 		pch = strtok(NULL, "|");
+
+		rotW1 = atof(pch);
+		pch = strtok(NULL, "|");
 		rotX1 = atof(pch);
 		pch = strtok(NULL, "|");
 		rotY1 = atof(pch);
 		pch = strtok(NULL, "|");
 		rotZ1 = atof(pch);
 		pch = strtok(NULL, "|");
+
 		posX2 = atof(pch);
 		pch = strtok(NULL, "|");
 		posY2 = atof(pch);
 		pch = strtok(NULL, "|");
 		posZ2 = atof(pch);
+		pch = strtok(NULL, "|");
+
+		rotW2 = atof(pch);
 		pch = strtok(NULL, "|");
 		rotX2 = atof(pch);
 		pch = strtok(NULL, "|");
@@ -129,9 +136,9 @@ void ReceiveThread(CSampleControllerDriver *m_pController, CSampleControllerDriv
 		btnSystem2 = atoi(pch);
 
 		m_pController->UpdatePosition(1, posX1, posY1, posZ1);
-		m_pController->UpdateRotation(1, rotX1, rotY1, rotZ1);
+		m_pController->UpdateRotation(1, rotW1, rotX1, rotY1, rotZ1);
 		m_pController2->UpdatePosition(2, posX2, posY2, posZ2);
-		m_pController2->UpdateRotation(2, rotX2, rotY2, rotZ2);
+		m_pController2->UpdateRotation(2, rotW2, rotX2, rotY2, rotZ2);
 
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController->HButtons[3], joy1Click, 0);
 		vr::VRDriverInput()->UpdateBooleanComponent(m_pController2->HButtons[3], joy2Click, 0);

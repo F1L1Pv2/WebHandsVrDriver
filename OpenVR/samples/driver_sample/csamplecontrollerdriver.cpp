@@ -8,13 +8,11 @@
 
 using namespace vr;
 
-static double cyaw = 0, cpitch = 0, croll = 0;
-static double ct0, ct1, ct2, ct3, ct4, ct5;
+static double cqW = 1, cqX = 0, cqY = 0, cqZ = 0;
 static double cpX = -0.2, cpY = 0, cpZ = -0.5;
 
 static double c2pX = 0.2, c2pY = 0, c2pZ = -0.5;
-static double c2yaw = 0, c2pitch = 0, c2roll = 0;
-static double c2t0, c2t1, c2t2, c2t3, c2t4, c2t5;
+static double c2qW = 1, c2qX = 0, c2qY = 0, c2qZ = 0;
 
 void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, double Y, double Z)
 {
@@ -33,20 +31,22 @@ void CSampleControllerDriver::UpdatePosition(int32_t ControllerIndex, double X, 
     }
 }
 
-void CSampleControllerDriver::UpdateRotation(int32_t ControllerIndex, double X, double Y, double Z)
+void CSampleControllerDriver::UpdateRotation(int32_t ControllerIndex, double W, double X, double Y, double Z)
 {
     // vr::VRDriverLog()->Log("UpdateRotation");
     if (ControllerIndex == 1)
     {
-        cyaw = X;
-        cpitch = Y;
-        croll = Z;
+        cqW = W;
+        cqX = X;
+        cqY = Y;
+        cqZ = Z;
     }
     else if (ControllerIndex == 2)
     {
-        c2yaw = X;
-        c2pitch = Y;
-        c2roll = Z;
+        c2qW = W;
+        c2qX = X;
+        c2qY = Y;
+        c2qZ = Z;
     }
 }
 
@@ -217,19 +217,11 @@ DriverPose_t CSampleControllerDriver::GetPose()
         pose.vecPosition[1] = cpY;
         pose.vecPosition[2] = cpZ;
 
-        // Convert yaw, pitch, roll to quaternion
-        ct0 = cos(cyaw * 0.5);
-        ct1 = sin(cyaw * 0.5);
-        ct2 = cos(croll * 0.5);
-        ct3 = sin(croll * 0.5);
-        ct4 = cos(cpitch * 0.5);
-        ct5 = sin(cpitch * 0.5);
-
         // Set controller rotation
-        pose.qRotation.w = ct0 * ct2 * ct4 + ct1 * ct3 * ct5;
-        pose.qRotation.x = ct0 * ct3 * ct4 - ct1 * ct2 * ct5;
-        pose.qRotation.y = ct0 * ct2 * ct5 + ct1 * ct3 * ct4;
-        pose.qRotation.z = ct1 * ct2 * ct4 - ct0 * ct3 * ct5;
+        pose.qRotation.w = cqW;
+        pose.qRotation.x = cqX;
+        pose.qRotation.y = cqY;
+        pose.qRotation.z = cqZ;
     }
     else
     {
@@ -267,19 +259,11 @@ DriverPose_t CSampleControllerDriver::GetPose()
         pose.vecPosition[1] = c2pY;
         pose.vecPosition[2] = c2pZ;
 
-        // Convert yaw, pitch, roll to quaternion
-        c2t0 = cos(c2yaw * 0.5);
-        c2t1 = sin(c2yaw * 0.5);
-        c2t2 = cos(c2roll * 0.5);
-        c2t3 = sin(c2roll * 0.5);
-        c2t4 = cos(c2pitch * 0.5);
-        c2t5 = sin(c2pitch * 0.5);
-
         // Set controller rotation
-        pose.qRotation.w = c2t0 * c2t2 * c2t4 + c2t1 * c2t3 * c2t5;
-        pose.qRotation.x = c2t0 * c2t3 * c2t4 - c2t1 * c2t2 * c2t5;
-        pose.qRotation.y = c2t0 * c2t2 * c2t5 + c2t1 * c2t3 * c2t4;
-        pose.qRotation.z = c2t1 * c2t2 * c2t4 - c2t0 * c2t3 * c2t5;
+        pose.qRotation.w = c2qW;
+        pose.qRotation.x = c2qX;
+        pose.qRotation.y = c2qY;
+        pose.qRotation.z = c2qZ;
     }
 
     return pose;
