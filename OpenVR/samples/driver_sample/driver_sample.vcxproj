@@ -73,7 +73,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\drivers\sample\bin\win64\</OutDir>
+    <OutDir>$(SolutionDir)\bin\drivers\webhandsvr\bin\win64\</OutDir>
+    <TargetName>driver_webhandsvr</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -81,7 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\drivers\sample\bin\win64\</OutDir>
+    <OutDir>$(SolutionDir)\bin\drivers\webhandsvr\bin\win64\</OutDir>
+    <TargetName>driver_webhandsvr</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -163,6 +165,15 @@
     <ClCompile Include="cserverdriver_sample.cpp" />
     <ClCompile Include="cwatchdogdriver_sample.cpp" />
     <ClCompile Include="driver_sample.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="basics.h" />
+    <ClInclude Include="csamplecontrollerdriver.h" />
+    <ClInclude Include="cserverdriver_sample.h" />
+    <ClInclude Include="cwatchdogdriver_sample.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.vrsettings" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

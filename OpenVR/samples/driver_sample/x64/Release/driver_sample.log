@@ -1,0 +1,17 @@
+﻿  cserverdriver_sample.cpp
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(68,17): warning C4083: expected '('; found identifier 'disable'
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(110,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(112,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(114,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(116,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(118,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(120,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(122,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\cserverdriver_sample.cpp(124,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+     Creating library C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\\bin\drivers\webhandsvr\bin\win64\driver_webhandsvr.lib and object C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\\bin\drivers\webhandsvr\bin\win64\driver_webhandsvr.exp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\csamplecontrollerdriver.cpp(355): warning C4715: 'CSampleControllerDriver::GetSerialNumber': not all control paths return a value
+  All 201 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  driver_sample.vcxproj -> C:\Users\Kuba\Downloads\WebHandsVrDriver-oculus\WebHandsVrDriver-main\OpenVR\samples\driver_sample\bin\drivers\webhandsvr\bin\win64\driver_webhandsvr.dll
