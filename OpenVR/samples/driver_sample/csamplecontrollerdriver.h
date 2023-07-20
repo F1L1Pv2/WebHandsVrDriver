@@ -42,7 +42,7 @@ public:
 
     std::string GetSerialNumber() const;
 
-    vr::VRInputComponentHandle_t HButtons[4], HAnalog[3];
+    vr::VRInputComponentHandle_t HButtons[3], HAnalog[3];
 
 private:
     vr::TrackedDeviceIndex_t m_unObjectId;
